@@ -1,0 +1,86 @@
+<!--
+    임시 회원가입 페이지
+    작성자: 이준영
+
+-->
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default_layout}">
+
+<div layout:fragment="content">
+    <form class="container" action="/users/update" method="post">
+        <br>
+        <div class="mb-3">
+            <label class="form-label">아이디: </label>
+            <span th:text="${loginInfo} ?: '정보 없음'"></span>
+        </div>
+        <div class="d-flex align-items-center">
+            <label class="form-label">비밀번호: </label>
+            <div class="col-3 ms-3">
+            <input type="password" class="form-control" name="pw" style="width: 500px;">
+            </div>
+        </div>
+        <br>
+
+        <div class="mb-3">
+            <label class="form-label">DOOR 아이디: </label>
+            <span th:text="${doorLoginInfo} ?: '정보 없음'"></span>
+        </div>
+        <div class="d-flex align-items-center">
+            <label class="form-label">DOOR 비밀번호: </label>
+            <div class="col-3 ms-3">
+            <input type="password" class="form-control" name="door_pw" style="width: 500px;">
+            </div>
+        </div>
+        <br>
+
+        <div class="mb-3">
+            <label class="form-label">이름: </label>
+            <span th:text="${nameInfo} ?: '정보 없음'"></span>
+        </div>
+
+        <!-- 체크 박스 시작 -->
+        <div class="mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="정치" id="politics" name="politics" th:checked="${userInterests.politics}">
+            <label class="form-check-label" for="politics">정치</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="경제" id="economy" name="economy" th:checked="${userInterests.economy}">
+            <label class="form-check-label" for="economy">경제</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="사회" id="society" name="society" th:checked="${userInterests.society}">
+            <label class="form-check-label" for="society">사회</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="생활/문화" id="lifestyleCulture" name="lifestyleCulture" th:checked="${userInterests.lifestyleCulture}">
+            <label class="form-check-label" for="lifestyleCulture">생활/문화</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="IT/과학" id="it" name="it" th:checked="${userInterests.it}">
+            <label class="form-check-label" for="it">IT/과학</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="세계" id="world" name="world" th:checked="${userInterests.world}">
+            <label class="form-check-label" for="world">세계</label>
+        </div>
+    </div>
+        <!-- 체크 박스 끝 -->
+
+        <button type="submit" class="btn btn-primary">정보 수정</button>
+    </form>
+
+    <br>
+    <form class="container" action="/users/delete" method="post">
+        <button type="submit" class="btn btn-primary">회원 탈퇴</button>
+    </form>
+
+    <div class="container mt-3">
+        <a href="/main" class="btn btn-secondary">뒤로가기</a>
+    </div>
+
+</div>
+</html>

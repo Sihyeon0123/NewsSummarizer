@@ -1,0 +1,229 @@
+<!--
+    header 입니다.
+    작성자: 이준영
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="header">
+
+    <nav>
+        <script src="/assets/js/color-modes.js"></script>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="" name="description">
+        <meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
+        <meta content="Hugo 0.122.0" name="generator">
+
+        <link href="https://getbootstrap.com/docs/5.3/examples/blog/" rel="canonical">
+
+
+        <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" rel="stylesheet">
+
+        <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="/blog/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap"
+              rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="/blog/blog.css" rel="stylesheet">
+    </nav>
+
+    <svg class="d-none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="check2" viewBox="0 0 16 16">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+            <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button aria-expanded="false"
+                aria-label="Toggle theme (auto)"
+                class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+                data-bs-toggle="dropdown"
+                id="bd-theme"
+                type="button">
+            <svg class="bi my-1 theme-icon-active" height="1em" width="1em">
+                <use href="#circle-half"></use>
+            </svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul aria-labelledby="bd-theme-text" class="dropdown-menu dropdown-menu-end shadow">
+            <li>
+                <button aria-pressed="false" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                        type="button">
+                    <svg class="bi me-2 opacity-50" height="1em" width="1em">
+                        <use href="#sun-fill"></use>
+                    </svg>
+                    Light
+                    <svg class="bi ms-auto d-none" height="1em" width="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button aria-pressed="false" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                        type="button">
+                    <svg class="bi me-2 opacity-50" height="1em" width="1em">
+                        <use href="#moon-stars-fill"></use>
+                    </svg>
+                    Dark
+                    <svg class="bi ms-auto d-none" height="1em" width="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button aria-pressed="true" class="dropdown-item d-flex align-items-center active"
+                        data-bs-theme-value="auto"
+                        type="button">
+                    <svg class="bi me-2 opacity-50" height="1em" width="1em">
+                        <use href="#circle-half"></use>
+                    </svg>
+                    Auto
+                    <svg class="bi ms-auto d-none" height="1em" width="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+
+    <svg class="d-none" xmlns="http://www.w3.org/2000/svg">
+        <symbol fill="none" id="aperture" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+        </symbol>
+        <symbol id="cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 16 16">
+            <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                  fill-rule="evenodd"/>
+        </symbol>
+    </svg>
+
+    <div class="container">
+        <header class="border-bottom lh-1 py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                    <a class="link-secondary" href="#">Subscribe</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/main">InfoWeb</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a aria-label="Search" class="link-secondary" href="/search">
+                        <svg class="mx-3" fill="none" height="20" role="img" stroke="currentColor"
+                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                             width="20"
+                             xmlns="http://www.w3.org/2000/svg"><title>Search</title>
+                            <circle cx="10.5" cy="10.5" r="7.5"/>
+                            <path d="M21 21l-5.2-5.2"/>
+                        </svg>
+                    </a>
+                    <div th:if="${loginInfo == null}"><a class="btn btn-sm btn-outline-secondary" href="/users/login">Login</a>
+                    </div>
+                    <div th:unless="${loginInfo == null}">
+                        <a class="btn btn-sm btn-outline-secondary" href="/logout">Logout</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="/users/mypage">Mypage</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 분야 선택 -->
+        <div class="nav-scroller py-1 mb-3 border-bottom">
+            <form action="/main" class="nav nav-underline justify-content-between" id="categoryForm" method="get">
+                <label class="nav-item nav-link link-body-emphasis"
+                       th:classappend="${selectedCategory == '종합'} ? 'active' : ''">
+                    <input class="d-none" name="category" onchange="submitForm();"
+                           th:checked="${selectedCategory == '종합'}" type="radio"
+                           value="종합">
+                    종합
+                </label>
+                <label class="nav-item nav-link link-body-emphasis"
+                       th:classappend="${selectedCategory == '정치'} ? 'active' : ''"
+                       th:if="${userInterests == null or userInterests.politics}">
+                    <input class="d-none" name="category" onchange="submitForm();"
+                           th:checked="${selectedCategory == '정치'}" type="radio"
+                           value="정치">
+                    정치
+                </label>
+                <label class="nav-item nav-link link-body-emphasis"
+                       th:classappend="${selectedCategory == '경제'} ? 'active' : ''"
+                       th:if="${userInterests == null or userInterests.economy}">
+                    <input class="d-none" name="category" onchange="submitForm();"
+                           th:checked="${selectedCategory == '경제'}" type="radio"
+                           value="경제">
+                    경제
+                </label>
+                <label class="nav-item nav-link link-body-emphasis"
+                       th:classappend="${selectedCategory == '사회'} ? 'active' : ''"
+                       th:if="${userInterests == null or userInterests.society}">
+                    <input class="d-none" name="category" onchange="submitForm();"
+                           th:checked="${selectedCategory == '사회'}" type="radio"
+                           value="사회">
+                    사회
+                </label>
+                <label class="nav-item nav-link link-body-emphasis"
+                       th:classappend="${selectedCategory == '생활/문화'} ? 'active' : ''"
+                       th:if="${userInterests == null or userInterests.lifestyleCulture}">
+                    <input class="d-none" name="category" onchange="submitForm();"
+                           th:checked="${selectedCategory == '생활/문화'}" type="radio"
+                           value="생활/문화">
+                    생활/문화
+                </label>
+                <label class="nav-item nav-link link-body-emphasis"
+                       th:classappend="${selectedCategory == 'IT/과학'} ? 'active' : ''"
+                       th:if="${userInterests == null or userInterests.it}">
+                    <input class="d-none" name="category" onchange="submitForm();"
+                           th:checked="${selectedCategory == 'IT/과학'}" type="radio"
+                           value="IT/과학">
+                    IT/과학
+                </label>
+                <label class="nav-item nav-link link-body-emphasis"
+                       th:classappend="${selectedCategory == '세계'} ? 'active' : ''"
+                       th:if="${userInterests == null or userInterests.world}">
+                    <input class="d-none" name="category" onchange="submitForm();"
+                           th:checked="${selectedCategory == '세계'}" type="radio"
+                           value="세계">
+                    세계
+                </label>
+                <label class="nav-item nav-link link-body-emphasis"
+                       th:classappend="${selectedCategory == '주식'} ? 'active' : ''"
+                       th:if="${userInterests == null or userInterests.stock}">
+                    <input class="d-none" name="category" onchange="submitForm();"
+                           th:checked="${selectedCategory == '주식'}" type="radio"
+                           value="주식">
+                    주식
+                </label>
+            </form>
+        </div>
+
+        <script>
+            function submitForm() {
+                document.getElementById("categoryForm").submit();
+            }
+        </script>
+
+        <!-- 분야 선택 끝 -->
+
+    </div>
+
+</div>
+
+</html>

@@ -1,0 +1,15 @@
+2024-03-23 03:00:34,594 - INFO - doorNotification.py - 도어 크롤링 시작
+2024-03-23 03:00:35,874 - INFO - doorNotification.py - door 접속
+2024-03-23 03:00:36,249 - INFO - doorNotification.py - 로그인 시도
+2024-03-23 03:00:39,748 - INFO - doorNotification.py - 로그인 완료
+2024-03-23 03:00:39,748 - INFO - doorNotification.py - 강의실 목록으로 이동
+2024-03-23 03:00:40,630 - INFO - doorNotification.py - 강의 목록 파싱
+2024-03-23 03:00:40,644 - INFO - doorNotification.py - 수강중인 강의 개수: 7
+2024-03-23 03:00:40,645 - INFO - doorNotification.py - 공지 json파일 요청
+2024-03-23 03:00:40,645 - INFO - doorNotification.py - 공지 json파일이 존재
+2024-03-23 03:00:40,645 - INFO - doorNotification.py - 각 강의별 공지 파싱 시작
+2024-03-23 03:30:38,481 - INFO - doorNotification.py - 도어 크롤링 시작
+2024-03-23 03:30:39,833 - INFO - doorNotification.py - door 접속
+2024-03-23 03:30:43,050 - INFO - doorNotification.py - 로그인 시도
+2024-03-23 03:30:45,367 - INFO - doorNotification.py - 로그인 완료
+2024-03-23 03:30:45,367 - INFO - doorNotification.py - 강의실 목록으로 이동

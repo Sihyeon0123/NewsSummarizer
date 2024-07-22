@@ -1,0 +1,205 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.btn-bd-primary {
+    --bd-violet-bg: #712cf9;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-violet-bg);
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #6528e0;
+    --bs-btn-hover-border-color: #6528e0;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #5a23c8;
+    --bs-btn-active-border-color: #5a23c8;
+}
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
+
+.nav-underline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-item.nav-link:first-child {
+    margin-left: 10em; /* 메인의 왼쪽 여백 */
+}
+
+.nav-item.nav-link:last-child {
+    margin-right: 10em; /* 세계의 오른쪽 여백 */
+}
+
+@media (max-width: 1400px) { /* 화면 너비가 768px 이하일 때 */
+    .nav-item.nav-link:first-child {
+        margin-left: 7em; /* 메인의 왼쪽 여백 */
+    }
+    .nav-item.nav-link:last-child {
+        margin-right: 7em; /* 세계의 오른쪽 여백 */
+    }
+}
+
+@media (max-width: 1200px) { /* 화면 너비가 768px 이하일 때 */
+    .nav-item.nav-link:first-child {
+        margin-left: 5em; /* 메인의 왼쪽 여백 */
+    }
+    .nav-item.nav-link:last-child {
+        margin-right: 5em; /* 세계의 오른쪽 여백 */
+    }
+}
+
+@media (max-width: 992px) { /* 화면 너비가 768px 이하일 때 */
+    .nav-item.nav-link:first-child {
+        margin-left: 3em; /* 메인의 왼쪽 여백 */
+    }
+    .nav-item.nav-link:last-child {
+        margin-right: 3em; /* 세계의 오른쪽 여백 */
+    }
+}
+
+@media (max-width: 768px) { /* 화면 너비가 768px 이하일 때 */
+    .nav-item.nav-link:first-child {
+        margin-left: 2em; /* 메인의 왼쪽 여백 */
+    }
+    .nav-item.nav-link:last-child {
+        margin-right: 2em; /* 세계의 오른쪽 여백 */
+    }
+}
+
+
+.col-4.d-flex.justify-content-end.align-items-center > a.btn {
+    margin-left: 10px; /* 회원가입 및 로그인 버튼 간의 간격 조정 */
+}
+.nav-item {
+    font-family: 'spoqaR', sans-serif; /* Spoqa 폰트 적용 */
+}
+
+.btn {
+    font-family: 'spoqaM', sans-serif; /* Spoqa 폰트 적용 */
+}
+
+/* 체크된 상태 스타일 */
+.form-check-input:checked {
+    background-color: #343a40; /* 체크된 상태의 배경색 */
+    border-color: #343a40; /* 체크된 상태의 테두리 색상 */
+}
+
+/* 호버 상태 스타일 */
+.form-check-input:hover {
+    background-color: #495057; /* 호버 상태의 배경색 */
+    border-color: #495057; /* 호버 상태의 테두리 색상 */
+}
+
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 20px; /* Place the button at the bottom */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #555; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px 20px; /* Some padding */
+    border-radius: 50px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add a shadow */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+#scrollToTopBtn:hover {
+    background-color: #000; /* Add a dark-grey background on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Slightly larger shadow on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+
+
+
+
+.list-unstyled li {
+    margin-bottom: 10px; /* 리스트 항목 사이의 간격 */
+    border-radius: 5px; /* 모서리를 둥글게 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+.list-unstyled li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: inherit; /* 부모의 글자색 상속 */
+    padding: 10px; /* 패딩 추가 */
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+
+    /* 버튼 */
+    .btn.btn-sm {
+        font-size: 10px;
+    }
+    .btn-custom-margin {
+        margin-bottom: 5px;
+    }
+
+}

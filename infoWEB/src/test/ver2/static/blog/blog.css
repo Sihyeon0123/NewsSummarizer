@@ -1,0 +1,72 @@
+/* stylelint-disable @stylistic/selector-list-comma-newline-after */
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
+
+
+
+.col-lg-6 {
+  text-align: center; /* 텍스트를 가운데 정렬 */
+}
+
+.list-unstyled {
+  display: flex;
+  flex-wrap: wrap; /* 아이템들이 다음 줄로 넘어가도록 설정 */
+  list-style: none; /* 기본 목록 스타일 제거 */
+  padding: 0; /* 기본 패딩 제거 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+.list-unstyled li {
+  width: 50%; /* 각 아이템이 차지할 너비 설정 */
+  box-sizing: border-box; /* 패딩과 보더를 너비에 포함 */
+}
+
+.bd-placeholder-img {
+  width: 100%; /* 이미지 너비를 100%로 설정 */
+  display: block; /* 블록 레벨 요소로 설정 */
+}
+.blog-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 버튼들을 중앙에 위치 */
+  gap: 10px; /* 버튼들 사이의 간격 */
+}
+.font-malgun {
+  font-family: 'Malgun Gothic', sans-serif;
+}

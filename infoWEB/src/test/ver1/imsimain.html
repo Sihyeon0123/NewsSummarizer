@@ -1,0 +1,89 @@
+<!--
+    임시 메인 페이지
+    작성자: 이준영
+
+-->
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default_layout}">
+
+    <div layout:fragment="content">
+        <h1>메인 페이지</h1>
+        <br>
+        <h5>로그인 정보: <span th:text="${loginInfo} ?: '정보 없음'"></span></h5>
+        <br>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div th:if="${loginInfo == null}"><a href="/users/login" class="btn btn-secondary">로그인/회원가입</a></div>
+            <div th:unless="${loginInfo == null}"><a href="/logout" class="btn btn-secondary">로그아웃</a></div>
+            <a href="/users/mypage" class="btn btn-secondary">마이페이지</a>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- 라디오 버튼 -->
+        <form id="categoryForm" action="/main" method="get">
+            <div class="form-check form-check-inline" th:if="${userInterests == null or userInterests.politics}">
+                <input class="form-check-input" type="radio" name="category" id="politics" value="정치"
+                       onchange="submitForm();" th:checked="${selectedCategory == '정치'}">
+                <label class="form-check-label" for="politics">정치</label>
+            </div>
+            <div class="form-check form-check-inline" th:if="${userInterests == null or userInterests.economy}">
+                <input class="form-check-input" type="radio" name="category" id="economy" value="경제"
+                       onchange="submitForm();" th:checked="${selectedCategory == '경제'}">
+                <label class="form-check-label" for="economy">경제</label>
+            </div>
+            <div class="form-check form-check-inline" th:if="${userInterests == null or userInterests.society}">
+                <input class="form-check-input" type="radio" name="category" id="society" value="사회"
+                       onchange="submitForm();" th:checked="${selectedCategory == '사회'}">
+                <label class="form-check-label" for="society">사회</label>
+            </div>
+            <div class="form-check form-check-inline" th:if="${userInterests == null or userInterests.lifestyleCulture}">
+                <input class="form-check-input" type="radio" name="category" id="lifestyle_culture" value="생활/문화"
+                       onchange="submitForm();" th:checked="${selectedCategory == '생활/문화'}">
+                <label class="form-check-label" for="lifestyle_culture">생활/문화</label>
+            </div>
+            <div class="form-check form-check-inline" th:if="${userInterests == null or userInterests.it}">
+                <input class="form-check-input" type="radio" name="category" id="it_science" value="IT/과학"
+                       onchange="submitForm();" th:checked="${selectedCategory == 'IT/과학'}">
+                <label class="form-check-label" for="it_science">IT/과학</label>
+            </div>
+            <div class="form-check form-check-inline" th:if="${userInterests == null or userInterests.world}">
+                <input class="form-check-input" type="radio" name="category" id="world" value="세계"
+                       onchange="submitForm();" th:checked="${selectedCategory == '세계'}">
+                <label class="form-check-label" for="world">세계</label>
+            </div>
+        </form>
+        <!-- 라디오 버튼 끝 -->
+
+        <script>
+            function submitForm() {
+                document.getElementById("categoryForm").submit();
+            }
+        </script>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">카테고리</th>
+                <th scope="col">이미지</th>
+                <th scope="col">제목</th>
+                <th scope="col">내용</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="naverNewsList : ${naverNewsList}">
+                <th th:text="${naverNewsList.category}" style="width: 100px">카테고리</th>
+                <td><img th:src="@{${naverNewsList.image_url}}" width="200" height="120" alt="이미지 없음"/></td>
+                <td th:text="${naverNewsList.title}">제목</td>
+                <td th:text="${naverNewsList.summary}">내용</td>
+
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</html>

@@ -1,0 +1,47 @@
+<!--
+    임시 회원가입 페이지
+    작성자: 이준영
+
+-->
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default_layout}">
+
+    <div layout:fragment="content">
+        <form class="container" action="/users/create" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">아이디</label>
+                <input type="text" class="form-control" name="id">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">비밀번호</label>
+                <input type="password" class="form-control" name="pw">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">DOOR 아이디</label>
+                <input type="text" class="form-control" name="door_id">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">DOOR 비밀번호</label>
+                <input type="password" class="form-control" name="door_pw">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">이름</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+
+            <button type="submit" class="btn btn-primary">회원가입</button>
+
+        </form>
+
+        <div class="container mt-3">
+            <a href="/users/login" class="btn btn-secondary">뒤로가기</a>
+        </div>
+
+    </div>
+</html>

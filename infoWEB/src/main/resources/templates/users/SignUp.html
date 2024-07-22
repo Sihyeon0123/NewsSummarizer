@@ -1,0 +1,64 @@
+<!doctype html>
+<html data-bs-theme="auto" lang="en"
+      layout:decorate="~{layouts/default_layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div layout:fragment="content">
+    <nav>
+        <link href="/blog/login.css" rel="stylesheet">
+    </nav>
+    <!-- 회원가입 폼 -->
+    <div class="form">
+        <div class="form-panel one">
+            <div class="form-header">
+                <h1 style="color: #1A1E27;">Register Account
+                    <hr>
+                </h1>
+            </div>
+            <div class="form-content">
+                <form class="container" action="/users/create" method="post">
+
+                    <!-- 비밀번호 불일치 에러 메시지 출력 -->
+                    <div th:if="${passwordError}" class="alert alert-danger" role="alert">
+                        <span th:text="${passwordError}"></span>
+                    </div>
+
+                    <!-- 중복 회원 에러 메시지 출력 -->
+                    <div th:if="${overlapError}" class="alert alert-danger" role="alert">
+                        <span th:text="${overlapError}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id">User ID</label>
+                        <input id="id" name="id" required="required" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pw">Password</label>
+                        <input id="pw" name="pw" required="required" type="password" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpw">Confirm Password</label>
+                        <input id="cpw" name="cpw" required="required" type="password" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" required="required" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Sign up</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+
+</html>

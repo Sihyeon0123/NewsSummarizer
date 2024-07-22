@@ -1,0 +1,135 @@
+<!doctype html>
+<html data-bs-theme="auto" lang="en"
+      layout:decorate="~{layouts/default_layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!-- 본문 시작 -->
+<div layout:fragment="content">
+
+    <div class="form">
+        <div class="form-panel one">
+            <div class="form-header">
+                <h3 style="font-family: 'spoqaM', sans-serif; color: #1A1E27;">
+                    <span th:if="${searchKeyword != null}" th:text="'\'' + ${searchKeyword} + '\'에 대한 검색 결과입니다.'"></span>
+                    <span th:unless="${searchKeyword != null}">검색어를 입력하세요.</span>
+                </h3>
+            </div>
+            <div class="form-content">
+                <form method="GET" action="/search">
+                    <div class="form-group">
+                        <label for="Search"></label>
+                        <input id="Search" name="searchKeyword" required="required" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Search</button>
+                    </div>
+
+                    <!-- 검색 결과 리스트 -->
+                    <div id="resultsContainer" th:if="${results != null}">
+                        <div th:each="news : ${results}" class="col-md-12">
+                            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <strong class="d-inline-block mb-2 text-primary-emphasis" th:text="${news.category}">카테고리</strong>
+                                    <h4 class="mb-0 font-malgun" th:text="${news.title}">뉴스 제목</h4>
+                                    <br>
+                                    <div class="mb-1 text-body-secondary" th:text="${news.created_at}">날짜</div>
+<!--                                    <small class="text-body-secondary">유사도: <span th:text="${#numbers.formatDecimal(news.similarityScore, 1, 2)}"></span></small>-->
+                                    <a class="icon-link gap-1 icon-link-hover stretched-link" th:href="@{${news.news_url}}">
+                                        Continue reading
+                                        <svg class="bi">
+                                            <use xlink:href="#chevron-right"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <img th:src="${news.image_url}" class="bd-placeholder-img" style="width: 200px; height: 250px; object-fit: cover;" alt="뉴스 이미지"
+                                         onerror="this.onerror=null; this.src='/blog/cat.jpg';" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 검색 결과가 없을 때 -->
+                    <div th:if="${results == null}">
+                        <p>검색 결과가 없습니다.</p>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        let page = 0;
+        let loading = false;
+        const searchKeyword = /*[[${searchKeyword}]]*/ '';
+
+        /**
+         * 검색 결과를 추가로 불러오는 함수
+         */
+        function loadMoreResults() {
+            if (loading) return;
+            loading = true;
+            page++;
+
+            console.log(`Fetching more results for keyword: ${searchKeyword}, page: ${page}`);
+            fetch(`/api/search?searchKeyword=${searchKeyword}&page=${page}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    const container = document.getElementById('resultsContainer');
+                    console.log(container); // 요소가 제대로 선택되는지 확인
+                    if (!container) {
+                        console.error('resultsContainer not found');
+                        return;
+                    }
+
+                    if (data.length === 0) {
+                        window.removeEventListener('scroll', handleScroll);
+                        return;
+                    }
+
+                    data.forEach(news => {
+                        const newsHtml = `
+                            <div class="col-md-12">
+                                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                    <div class="col p-4 d-flex flex-column position-static">
+                                        <strong class="d-inline-block mb-2 text-primary-emphasis">${news.category}</strong>
+                                        <h4 class="mb-0 font-malgun">${news.title}</h4>
+                                        <br>
+                                        <div class="mb-1 text-body-secondary">${news.created_at}</div>
+                                        <a class="icon-link gap-1 icon-link-hover stretched-link" href="${news.news_url}">Continue reading
+                                            <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <img src="${news.image_url}" class="bd-placeholder-img" style="width: 200px; height: 250px; object-fit: cover;" alt="뉴스 이미지"
+                                             onerror="this.onerror=null; this.src='/blog/cat.jpg';" />
+                                    </div>
+                                </div>
+                            </div>`;
+                        container.insertAdjacentHTML('beforeend', newsHtml);
+                    });
+
+                    loading = false;
+                });
+        }
+
+        /**
+         * 스크롤 이벤트 핸들러 함수
+         */
+        function handleScroll() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
+                loadMoreResults();
+            }
+        }
+
+        // 페이지 로드 시 스크롤 이벤트 리스너 추가
+        window.addEventListener('scroll', handleScroll);
+    </script>
+
+</div>
+
+</html>

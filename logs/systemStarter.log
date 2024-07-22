@@ -1,0 +1,85 @@
+2024-03-23 02:58:30,367 - INFO - system_starter.py - 시스템 시작
+2024-03-23 03:00:34,592 - INFO - system_starter.py - 시스템 시작
+2024-03-23 03:00:34,593 - INFO - system_starter.py - 도어 알림 동작 시작
+2024-03-23 03:30:38,478 - INFO - system_starter.py - 시스템 시작
+2024-03-23 03:30:38,480 - INFO - system_starter.py - 도어 알림 동작 시작
+2024-03-23 15:15:09,352 - INFO - system_starter.py - 시스템 시작
+2024-03-23 15:15:09,353 - INFO - system_starter.py - 네이버 뉴스 크롤링 수행시작
+2024-03-23 15:16:43,438 - INFO - system_starter.py - 시스템 시작
+2024-03-23 15:25:42,429 - INFO - system_starter.py - 시스템 시작
+2024-03-23 15:25:42,444 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-03-23 15:25:42,445 - INFO - system_starter.py - 네이버 뉴스 크롤링 수행시작
+2024-05-09 07:19:49,598 - INFO - system_starter.py - 시스템 시작
+2024-05-09 07:19:49,831 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-09 07:19:49,832 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-09 07:19:49,834 - INFO - system_starter.py - 네이버 실시간 뉴스 크롤러 시작
+2024-05-09 07:19:49,835 - INFO - system_starter.py - S&P 500 Map 생성시작
+2024-05-09 07:19:49,837 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작
+2024-05-09 07:19:49,837 - INFO - system_starter.py - Financialjuice 이벤트 크롤러 시작
+2024-05-09 07:24:46,468 - INFO - system_starter.py - 시스템 시작
+2024-05-09 07:24:46,688 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-09 07:24:46,689 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-09 07:24:46,691 - INFO - system_starter.py - 네이버 실시간 뉴스 크롤러 시작
+2024-05-09 07:24:46,694 - INFO - system_starter.py - S&P 500 Map 생성시작
+2024-05-09 07:24:46,694 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작
+2024-05-09 07:24:46,695 - INFO - system_starter.py - Financialjuice 이벤트 크롤러 시작
+2024-05-31 20:26:00,642 - INFO - system_starter.py - 시스템 시작
+2024-05-31 20:26:00,660 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-31 20:26:00,661 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-31 20:26:00,662 - INFO - system_starter.py - 네이버 실시간 뉴스 크롤러 시작
+2024-05-31 20:26:00,663 - INFO - system_starter.py - Financialjuice 이벤트 크롤러 시작
+2024-05-31 20:26:00,664 - INFO - system_starter.py - S&P 500 Map 생성시작
+2024-05-31 20:26:00,664 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작
+2024-05-31 20:26:08,541 - INFO - system_starter.py - 시스템 시작
+2024-05-31 20:26:08,550 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-31 20:26:08,550 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-31 20:26:08,551 - INFO - system_starter.py - 네이버 실시간 뉴스 크롤러 시작
+2024-05-31 20:26:08,552 - INFO - system_starter.py - S&P 500 Map 생성시작
+2024-05-31 20:26:08,553 - INFO - system_starter.py - Financialjuice 이벤트 크롤러 시작
+2024-05-31 20:26:08,553 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작
+2024-05-31 20:26:09,008 - INFO - system_starter.py - NounFrequencyAnalyzer 빈도수 계산 수행
+2024-05-31 20:26:09,009 - INFO - nounFrequencyAnalyzer.py - 이미지 생성을 시작합니다.
+2024-05-31 20:26:17,966 - INFO - nounFrequencyAnalyzer.py - 사진 생성 완료
+2024-05-31 20:27:51,687 - INFO - system_starter.py - 시스템 시작
+2024-05-31 20:27:51,697 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-31 20:27:51,697 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-31 20:27:51,698 - INFO - system_starter.py - 네이버 실시간 뉴스 크롤러 시작
+2024-05-31 20:27:51,699 - INFO - system_starter.py - S&P 500 Map 생성시작
+2024-05-31 20:27:51,699 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작
+2024-05-31 20:27:51,700 - INFO - system_starter.py - Financialjuice 이벤트 크롤러 시작
+2024-05-31 20:27:52,188 - INFO - system_starter.py - NounFrequencyAnalyzer 빈도수 계산 수행
+2024-05-31 20:27:52,188 - INFO - nounFrequencyAnalyzer.py - 이미지 생성을 시작합니다.
+2024-05-31 20:28:00,506 - INFO - nounFrequencyAnalyzer.py - 사진 생성 완료
+2024-05-31 20:29:13,927 - INFO - system_starter.py - 시스템 시작
+2024-05-31 20:29:13,936 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-31 20:29:13,936 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-31 20:29:13,937 - INFO - system_starter.py - 네이버 실시간 뉴스 크롤러 시작
+2024-05-31 20:29:13,938 - INFO - system_starter.py - S&P 500 Map 생성시작
+2024-05-31 20:29:13,939 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작
+2024-05-31 20:29:13,940 - INFO - system_starter.py - Financialjuice 이벤트 크롤러 시작
+2024-05-31 20:29:14,381 - INFO - system_starter.py - NounFrequencyAnalyzer 빈도수 계산 수행
+2024-05-31 20:29:14,381 - INFO - nounFrequencyAnalyzer.py - 이미지 생성을 시작합니다.
+2024-05-31 20:29:22,326 - INFO - nounFrequencyAnalyzer.py - 사진 생성 완료
+2024-05-31 20:30:55,209 - INFO - system_starter.py - 시스템 시작
+2024-05-31 20:30:55,220 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-31 20:30:55,221 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-31 20:30:55,221 - INFO - system_starter.py - 네이버 실시간 뉴스 크롤러 시작
+2024-05-31 20:30:55,224 - INFO - system_starter.py - Financialjuice 이벤트 크롤러 시작
+2024-05-31 20:30:55,224 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작
+2024-05-31 20:30:55,224 - INFO - system_starter.py - S&P 500 Map 생성시작
+2024-05-31 20:30:55,802 - INFO - system_starter.py - NounFrequencyAnalyzer 빈도수 계산 수행
+2024-05-31 20:30:55,802 - INFO - nounFrequencyAnalyzer.py - 이미지 생성을 시작합니다.
+2024-05-31 20:31:06,967 - INFO - nounFrequencyAnalyzer.py - 사진 생성 완료
+2024-05-31 20:37:43,103 - INFO - system_starter.py - 시스템 시작
+2024-05-31 20:37:43,113 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-31 20:37:43,114 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-31 20:42:49,897 - INFO - system_starter.py - 시스템 시작
+2024-05-31 20:42:49,907 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-31 20:42:49,907 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-05-31 20:42:58,073 - INFO - system_starter.py - 시스템 시작
+2024-05-31 20:42:58,082 - INFO - system_starter.py - 뉴스 브리핑 봇 동작 시작
+2024-05-31 20:42:58,083 - INFO - system_starter.py - 네이버 뉴스 크롤러 시작
+2024-06-10 22:26:04,739 - INFO - system_starter.py - 시스템 시작
+2024-06-10 22:26:04,740 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작
+2024-06-10 22:26:23,252 - INFO - system_starter.py - 시스템 시작
+2024-06-10 22:26:23,253 - INFO - system_starter.py - InvestingCalendar 이벤트 크롤러 시작

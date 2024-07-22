@@ -1,0 +1,64 @@
+<!doctype html>
+<html data-bs-theme="auto" lang="en"
+      layout:decorate="~{layouts/default_layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<div layout:fragment="content">
+    <nav>
+        <link href="/blog/login.css" rel="stylesheet">
+    </nav>
+    <!-- 로그인 폼 -->
+    <div class="form">
+        <div class="form-panel one">
+            <div class="form-header">
+                <h1 style="color: #1A1E27;">Account Login
+                    <hr>
+                </h1>
+            </div>
+            <div class="form-content">
+                <form action="/login_process" method="post">
+
+                    <!-- 로그인 에러 메시지 출력 -->
+                    <div th:if="${loginError}" class="alert alert-danger" role="alert">
+                        <span th:text="${loginError}"></span>
+                    </div>
+
+                    <div th:if="${pwError}" class="alert alert-danger" role="alert">
+                        <span th:text="${pwError}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id">User ID</label>
+                        <input id="id" name="id" required="required" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="pw">Password</label>
+                        <input id="pw" name="pw" required="required" type="password"/>
+                    </div>
+
+                    <!-- 자동 로그인 체크박스 -->
+                    <div class="form-group">
+                        <label class="form-remember">
+                            <input type="checkbox" id="rememberMe" name="remember-me">Remember Me
+                        </label>
+                        <a class="form-recovery" href="/users/signup">Register Account</a>
+                    </div>
+                    <!-- 자동 로그인 체크박스 끝 -->
+
+                    <div class="form-group">
+                        <button type="submit">Sign In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+</html>

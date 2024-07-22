@@ -1,0 +1,128 @@
+<!--
+    메인 페이지
+    작성자: 이준영
+-->
+
+<!doctype html>
+<html data-bs-theme="auto" lang="en"
+      layout:decorate="~{layouts/default_layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!-- 본문 시작 -->
+<div layout:fragment="content">
+
+    <main class="container">
+        <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+            <div class="col-lg-6 px-0">
+                <h1 class="display-10 font-malgun text-center">
+                </h1>
+            </div>
+            <div class="text-center">
+                <h4 class="fst-italic">
+                    Today's topic
+                </h4>
+            </div>
+            <div class="container"> <!-- 컨테이너를 추가하여 전체 내용을 중앙에 위치 -->
+                <div class="col-lg-12"> <!-- col-lg-6을 col-lg-12로 변경하여 전체 너비 사용 -->
+
+                    <!-- 메인 뉴스 리스트 -->
+                    <ul class="list-unstyled">
+                        <li th:each="naverNewsList : ${naverNewsList}">
+                            <a class="d-flex flex-row gap-3 align-items-center py-3 link-body-emphasis text-decoration-none border-top"
+                               th:href="@{${naverNewsList.news_url}}">
+                                <img class="bd-placeholder-img" style="width: 120px; height: 96px; object-fit: cover;"
+                                     alt="뉴스 이미지" th:src="${naverNewsList.image_url}" />
+                                <div class="col-8" style="flex: 1;">
+                                    <h6 class="mb-0" th:text="${naverNewsList.title}">뉴스 제목</h6>
+                                    <small class="text-body-secondary" th:text="${naverNewsList.summary}">뉴스 요약 내용</small>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- 메인 뉴스 리스트 끝 -->
+
+                </div>
+            </div>
+        </div>
+
+        <h3 class="pb-0 mb-3 text-center"> <!-- 중앙 정렬을 위한 text-center 추가 -->
+            <nav aria-label="Pagination" class="blog-pagination">
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <a class="btn btn-outline-primary rounded-pill" href="#">#키워드</a>
+                <!-- HTML 주석으로 변경 -->
+                <!-- <a aria-disabled="true" class="btn btn-outline-secondary rounded-pill disabled">Newer</a> -->
+            </nav>
+        </h3>
+        <h3 class="pb-0 mb-3">
+            <nav aria-label="Pagination" class="blog-pagination">
+
+            </nav>
+        </h3>
+
+        <div class="text-center">
+            <div class="mx-auto" style="max-width: 500px;">
+                <img alt="Your Image" class="img-fluid rounded" src="/blog/Cloud.jpg"/>
+            </div>
+        </div>
+
+        <div class="container mt-3 mb-3">
+            <div class="row">
+                <div class="col-md-6 border-end">
+                    <h3 class="text-center font-malgun">헤드라인</h3>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="text-center font-malgun">실시간 뉴스</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- 실시간 뉴스 -->
+        <div class="row mb-2">
+            <div th:each="realTimeNews : ${realTimeNews}" class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary-emphasis" th:text="${realTimeNews.category}">
+                            카테고리
+                        </strong>
+                        <h4 class="mb-0" th:text="${realTimeNews.title}">
+                            뉴스 제목
+                        </h4>
+                        <div class="mb-1 text-body-secondary" th:text="${realTimeNews.created_at}">
+                            날짜
+                        </div>
+                        <p class="card-text mb-auto" th:text="${realTimeNews.publisher}">
+                            퍼블리셔
+                        </p>
+                        <a class="icon-link gap-1 icon-link-hover stretched-link" th:href="@{${realTimeNews.news_url}}">
+                            Continue reading
+                            <svg class="bi">
+                                <use xlink:href="#chevron-right"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class="bd-placeholder-img" style="width: 200px; height: 250px; object-fit: cover;"
+                             alt="뉴스 이미지" th:src="${realTimeNews.image_url}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 실시간 뉴스 끝 -->
+
+
+
+    </main>
+</div>
+</html>

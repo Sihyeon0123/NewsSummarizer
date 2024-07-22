@@ -1,0 +1,47 @@
+<!--
+    뉴스 검색 페이지
+    작성자: 이준영
+-->
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>뉴스 검색 페이지</title>
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between mb-4">
+        <h2>뉴스 검색</h2>
+        <a href="/main" class="btn btn-secondary">뒤로가기</a>
+    </div>
+
+    <form method="GET" action="/search" class="mb-4">
+
+            <input type="text" name="searchKeyword" class="form-control" placeholder="검색어를 입력하세요" required>
+            <button class="btn btn-primary" type="submit">검색</button>
+        </div>
+    </form>
+
+    <!-- 검색 결과 리스트 -->
+    <ul class="list-unstyled" th:if="${results != null}">
+        <li th:each="news : ${results}">
+            <a class="d-flex flex-row gap-3 align-items-center py-3 link-body-emphasis text-decoration-none border-top"
+               th:href="@{${news.news_url}}">
+                <img th:src="${news.image_url}" class="bd-placeholder-img" style="width: 96px; height: 96px; object-fit: cover;" alt="뉴스 이미지"/>
+                <div class="col-8">
+                    <h6 class="mb-0" th:text="${news.title}">뉴스 제목</h6>
+                    <small class="text-body-secondary" th:text="${news.created_at}">날짜</small>
+                    <small class="text-body-secondary">유사도: <span th:text="${#numbers.formatDecimal(news.similarityScore, 1, 2)}"></span></small>
+                </div>
+            </a>
+        </li>
+    </ul>
+
+    <!-- 검색 결과가 없을 때 -->
+    <div th:if="${results == null}">
+        <p>검색 결과가 없습니다.</p>
+    </div>
+</div>
+</body>
+</html>
