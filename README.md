@@ -30,7 +30,7 @@ konlpy와 wordcloud를 사용하여 주요 명사를 추출하고 시각화하�
 - **Linux**: 서버 운영체제로 사용됩니다.
 
 ## 프로젝트 구조
-![캡스톤디자인II_발표자료](https://github.com/user-attachments/assets/7075a0a0-7a70-4d43-adb1-87432c80227e)
+![캡스톤디자인II_발표자료](https://github.com/user-attachments/assets/a5c9d6fc-d4e7-48cf-8659-502aff57cf6c)
 
 ## 주요 기능
 - **뉴스 크롤링**: Selenium과 Requests를 사용하여 다양한 뉴스 사이트에서 뉴스 기사를 크롤링합니다.
@@ -42,17 +42,18 @@ konlpy와 wordcloud를 사용하여 주요 명사를 추출하고 시각화하�
 
 ## 결과
 - **뉴스 요약**
-![캡스톤디자인II_발표자료](https://github.com/user-attachments/assets/cbcee8c1-6655-4de5-b71c-1bf212a976a4)
+![캡스톤디자인II_발표자료](https://github.com/user-attachments/assets/ac5e5317-af85-41f1-bf92-6f7e85645cc9)
+
 
 - **트렌드 분석**
-![wordcloud_2024-05-31](https://github.com/user-attachments/assets/e149e585-6f4a-49c1-89b6-361dd781acb8)
+![wordcloud_2024-05-31](https://github.com/user-attachments/assets/ad25da25-39e4-42dd-b04c-afd257676cd8)
 
 - **자연어 검색**
-  - "카카오뱅크" 검색시 임베딩을 통해서 검색어가 포함되지 않아도 비슷한 의미를 가진 뉴스 목록이 출력됩니다.
-![캡스톤디자인II_발표자료](https://github.com/user-attachments/assets/a2f91bf1-8e7b-46fc-8c73-6ac0c7918414)
+  - "카카오뱅크" 검색시 임베딩을 통해서 검색어와 제목간 유사도를 계산하며, 검색어와 일치하지 않아도 비슷한 의미를 가진 뉴스 목록이 출력됩니다.
+![캡스톤디자인II_발표자료](https://github.com/user-attachments/assets/d42f27dc-71fc-43aa-a226-fe1e82420bcf)
 
 - **그 외**
-![캡스톤디자인II_발표자료](https://github.com/user-attachments/assets/e1219a2a-4c9a-451b-bb19-b56347dd67d0)
+![캡스톤디자인II_발표자료](https://github.com/user-attachments/assets/7f880d06-5b13-47f2-81b8-7a688d06303f)
 
 
 ## 부록
