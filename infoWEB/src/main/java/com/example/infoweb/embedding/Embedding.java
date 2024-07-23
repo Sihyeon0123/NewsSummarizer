@@ -25,6 +25,8 @@ import java.nio.charset.StandardCharsets;
 
 @Slf4j
 public class Embedding {
+    private String apiKey = "";
+
     private double dot(double[] a, double[] b) {
         if (a.length != b.length) {
             return 0.0;
@@ -84,7 +86,7 @@ public class Embedding {
 
             // 요청 헤더 설정
             httpPost.setHeader("Content-Type", "application/json");
-            httpPost.setHeader("Authorization", "Bearer sk-proj-Lae2ewjpQ3iY5KPYKutuT3BlbkFJJx42Vup9eDs8EG4ORiub");
+            httpPost.setHeader("Authorization", "Bearer " + apiKey);
 
             // 요청 바디 설정
             StringEntity entity = new StringEntity(requestData, StandardCharsets.UTF_8);
