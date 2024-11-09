@@ -9,10 +9,13 @@
 package com.example.infoweb.repository;
 
 import com.example.infoweb.entity.NaverNews;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface NaverNewsRepository extends CrudRepository<NaverNews, String> {
 
@@ -38,4 +41,8 @@ public interface NaverNewsRepository extends CrudRepository<NaverNews, String> {
      * IgnoreCase: 대소문자를 구분하지 않고 검색합니다.
      */
     ArrayList<NaverNews> findByTitleContainingIgnoreCase(String title);
+
+    // 최신 뉴스만 조회 (createdAt 기준 내림차순) - 페이징 처리 적용
+    @Query("SELECT n FROM NaverNews n ORDER BY n.createdAt DESC")
+    Page<NaverNews> findLatestNews(Pageable pageable);
 }

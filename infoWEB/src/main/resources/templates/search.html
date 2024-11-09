@@ -19,7 +19,7 @@
                 <form method="GET" action="/search">
                     <div class="form-group">
                         <label for="Search"></label>
-                        <input id="Search" name="searchKeyword" required="required" type="text"/>
+                        <input id="Search" name="searchKeyword" required="required" type="text" value="${searchKeyword}"/>
                     </div>
                     <div class="form-group">
                         <button type="submit">Search</button>
@@ -34,7 +34,6 @@
                                     <h4 class="mb-0 font-malgun" th:text="${news.title}">뉴스 제목</h4>
                                     <br>
                                     <div class="mb-1 text-body-secondary" th:text="${news.created_at}">날짜</div>
-<!--                                    <small class="text-body-secondary">유사도: <span th:text="${#numbers.formatDecimal(news.similarityScore, 1, 2)}"></span></small>-->
                                     <a class="icon-link gap-1 icon-link-hover stretched-link" th:href="@{${news.news_url}}">
                                         Continue reading
                                         <svg class="bi">
@@ -55,16 +54,15 @@
                         <p>검색 결과가 없습니다.</p>
                     </div>
 
-
                 </form>
             </div>
         </div>
     </div>
 
     <script th:inline="javascript">
-        let page = 0;
-        let loading = false;
-        const searchKeyword = /*[[${searchKeyword}]]*/ '';
+        let page = 0;  // 페이지 번호 초기화
+        let loading = false;  // 로딩 중 여부
+        const searchKeyword = /*[[${searchKeyword}]]*/ '';  // 검색어 가져오기
 
         /**
          * 검색 결과를 추가로 불러오는 함수
@@ -72,7 +70,7 @@
         function loadMoreResults() {
             if (loading) return;
             loading = true;
-            page++;
+            page++;  // 페이지 번호 증가
 
             console.log(`Fetching more results for keyword: ${searchKeyword}, page: ${page}`);
             fetch(`/api/search?searchKeyword=${searchKeyword}&page=${page}`)
@@ -80,7 +78,6 @@
                 .then(data => {
                     console.log(data);
                     const container = document.getElementById('resultsContainer');
-                    console.log(container); // 요소가 제대로 선택되는지 확인
                     if (!container) {
                         console.error('resultsContainer not found');
                         return;
@@ -110,7 +107,7 @@
                                     </div>
                                 </div>
                             </div>`;
-                        container.insertAdjacentHTML('beforeend', newsHtml);
+                        container.insertAdjacentHTML('beforeend', newsHtml);  // 결과를 화면에 추가
                     });
 
                     loading = false;
@@ -122,7 +119,7 @@
          */
         function handleScroll() {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
-                loadMoreResults();
+                loadMoreResults();  // 스크롤이 끝에 닿으면 추가 데이터 로드
             }
         }
 

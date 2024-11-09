@@ -21,6 +21,10 @@ import com.example.infoweb.entity.NaverNews;
 import com.example.infoweb.repository.NaverNewsRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,18 +56,23 @@ public class SearchController {
      * @return 검색 결과 페이지 뷰 이름
      */
     @GetMapping("/search")
-    public String searchForm(@RequestParam(name = "searchKeyword", required = false) String searchKeyword, Model model) {
+    public String searchForm(
+            @RequestParam(name = "searchKeyword", required = false) String searchKeyword,
+            @RequestParam(name = "page", defaultValue = "0") int page, // 기본값 0, 페이지 번호를 받음
+            Model model) {
 
         // 검색 키워드가 null이 아니고 공백이 아닐 때만 검색 수행
         if (searchKeyword != null && !searchKeyword.trim().isEmpty()) {
             log.info("검색 키워드: " + searchKeyword);
 
             // 검색 결과를 가져와서 finalResults 리스트에 저장
-            List<NaverNewsDTO> finalResults = getSearchResults(searchKeyword, 0);
+            List<NaverNewsDTO> finalResults = getSearchResults(searchKeyword, page); // 페이지 번호에 맞는 결과 요청
             // 모델에 검색 결과 리스트 추가
             model.addAttribute("results", finalResults);
             // 모델에 검색 키워드 추가
             model.addAttribute("searchKeyword", searchKeyword);
+            // 모델에 페이지 번호 추가
+            model.addAttribute("page", page);
 
             log.info("검색 결과 불러오기 완료");
         }
@@ -98,7 +107,8 @@ public class SearchController {
     @ResponseBody
     public List<NaverNewsDTO> getSearchResults(@RequestParam("searchKeyword") String searchKeyword, @RequestParam("page") int page) {
 
-        int pageSize = 20;
+        int pageSize = 100; // 한 번에 100개씩 가져오기
+
         // 코사인 유사도 검색 수행
         Embedding em = new Embedding();
         // 임베딩 계산
@@ -106,28 +116,26 @@ public class SearchController {
 
         // Like 연산으로 검색 수행
         List<NaverNews> keywordResults = naverNewsRepository
-                                        .findByTitleContainingIgnoreCase(searchKeyword)
-                                        .stream()
-                                        .toList();
+                .findByTitleContainingIgnoreCase(searchKeyword)
+                .stream()
+                .toList();
 
-        // 모든 뉴스 조회
-        List<NaverNews> allNews = naverNewsRepository.findAll();
+        // 페이징 처리: 최신 뉴스 100개씩 페이지 범위에 맞는 데이터를 조회
+        Pageable pageable = PageRequest.of(page, pageSize, Sort.by(Sort.Order.desc("createdAt")));
+        Page<NaverNews> pageResults = naverNewsRepository.findAll(pageable);  // 페이지에 맞게 데이터 조회
+
+        // 코사인 유사도 계산
         List<NaverNews> cosineResults = new ArrayList<>();
-
-        // 모든 뉴스에 대해 유사도 계산
-        for (NaverNews news : allNews) {
-            // 유사도 계산
+        for (NaverNews news : pageResults.getContent()) {
             double similarity = em.cosineDistance(searchEmbedding, news.getEmbedding());
-            // 유사도 점수를 객체에 저장
-            news.setSimilarityScore(similarity);
-            // 결과 리스트에 추가
+            news.getClass(similarity);
             cosineResults.add(news);
         }
 
         // 유사도 점수가 높은 순서대로 정렬
         List<NaverNews> topResults = cosineResults.stream()
-                                    .sorted(Comparator.comparingDouble(NaverNews::getSimilarityScore).reversed())
-                                    .toList();
+                .sorted(Comparator.comparingDouble(NaverNews::getSimilarityScore).reversed())
+                .toList();
 
         // Like 연산 결과와 유사도 검색 결과 합치기
         List<NaverNews> combinedResults = new ArrayList<>(keywordResults);
@@ -135,19 +143,17 @@ public class SearchController {
 
         // 중복 제거 및 최종 결과 정렬
         List<NaverNews> finalResults = combinedResults.stream()
-                                      .distinct()
-                                      .sorted(Comparator.comparingDouble(NaverNews::getSimilarityScore).reversed())
-                                      .skip((long) page * pageSize)
-                                      .limit(pageSize)
-                                      .collect(Collectors.toList());
-        
+                .distinct()
+                .sorted(Comparator.comparingDouble(NaverNews::getSimilarityScore).reversed())
+                .collect(Collectors.toList());
+
         log.info("getSearchResults 함수 수행 완료");
 
         // finalResults을 리턴
         return finalResults.stream()
-                            // 날짜 포맷팅
-                           .map(news -> new NaverNewsDTO(news, formatter))
-                           .collect(Collectors.toList());
+                // 날짜 포맷팅
+                .map(news -> new NaverNewsDTO(news, formatter))
+                .collect(Collectors.toList());
     }
 
 }

@@ -49,7 +49,7 @@
             <nav aria-label="Pagination" class="blog-pagination">
                 <a class="btn btn-outline-primary rounded-pill mx-1"
                    th:each="nounFrequency : ${nounFrequencies}"
-                   th:href="@{'/search?searchKeyword=' + ${nounFrequency.noun}}">
+                   th:href="@{'/search?searchKeyword=' + ${nounFrequency.noun} + '&page=0'}">
                     <span th:text="'#' + ${nounFrequency.noun}">#키워드</span>
                 </a>
             </nav>
